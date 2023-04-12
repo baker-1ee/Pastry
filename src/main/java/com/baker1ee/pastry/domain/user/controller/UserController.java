@@ -1,8 +1,8 @@
-package com.baker1ee.pastry.user.controller;
+package com.baker1ee.pastry.domain.user.controller;
 
-import com.baker1ee.pastry.user.dto.request.UserCreateRequest;
-import com.baker1ee.pastry.user.entity.User;
-import com.baker1ee.pastry.user.service.UserService;
+import com.baker1ee.pastry.domain.user.dto.request.UserCreateRequest;
+import com.baker1ee.pastry.domain.user.entity.User;
+import com.baker1ee.pastry.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

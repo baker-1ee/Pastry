@@ -1,6 +1,6 @@
-package com.baker1ee.pastry.user.entity;
+package com.baker1ee.pastry.domain.user.entity;
 
-import com.baker1ee.pastry.user.dto.request.UserCreateRequest;
+import com.baker1ee.pastry.domain.user.dto.request.UserCreateRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

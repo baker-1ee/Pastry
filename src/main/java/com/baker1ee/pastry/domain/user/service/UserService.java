@@ -1,8 +1,8 @@
-package com.baker1ee.pastry.user.service;
+package com.baker1ee.pastry.domain.user.service;
 
-import com.baker1ee.pastry.user.dto.request.UserCreateRequest;
-import com.baker1ee.pastry.user.repository.UserRepository;
-import com.baker1ee.pastry.user.entity.User;
+import com.baker1ee.pastry.domain.user.dto.request.UserCreateRequest;
+import com.baker1ee.pastry.domain.user.repository.UserRepository;
+import com.baker1ee.pastry.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,7 @@ public class UserService {
 
 
     public User createUser(UserCreateRequest request) {
-        // TODO: 2023/04/06 ID 생성기 작성 필요 
-        Long id = 1L;
+        Long id = request.getUserSeq();
         User user = User.of(id, request);
         return userRepository.save(user);
     }

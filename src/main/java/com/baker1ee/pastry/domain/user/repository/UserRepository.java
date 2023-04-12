@@ -1,6 +1,6 @@
-package com.baker1ee.pastry.user.repository;
+package com.baker1ee.pastry.domain.user.repository;
 
-import com.baker1ee.pastry.user.entity.User;
+import com.baker1ee.pastry.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
