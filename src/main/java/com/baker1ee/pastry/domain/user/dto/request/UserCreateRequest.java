@@ -5,17 +5,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserCreateRequest {
 
-    @NotNull
-    private Long userSeq;
+    @NotBlank
+    private String firstName;
 
     @NotBlank
-    private String name;
+    private String lastName;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String password;
+
+    @NotBlank
+    private String passwordConfirm;
 
 }
