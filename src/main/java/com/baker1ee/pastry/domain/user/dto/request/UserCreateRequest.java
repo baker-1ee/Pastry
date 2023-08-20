@@ -12,10 +12,7 @@ import javax.validation.constraints.NotBlank;
 public class UserCreateRequest {
 
     @NotBlank
-    private String firstName;
-
-    @NotBlank
-    private String lastName;
+    private String name;
 
     @NotBlank
     private String email;

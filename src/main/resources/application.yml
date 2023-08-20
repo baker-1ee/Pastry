@@ -9,3 +9,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
+
+security:
+  jwt:
+    token:
+      secret-key: Gontran_Cherrier
+      expire-ms: 300000 # 5분 (300초)
+      

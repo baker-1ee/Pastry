@@ -16,10 +16,10 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
-    public ResponseEntity<User> createUser(@RequestBody UserCreateRequest request) {
-        User user = userService.createUser(request);
-        return ResponseEntity.ok(user);
+    @PostMapping("/signup")
+    public ResponseEntity<String> signUp(@RequestBody UserCreateRequest request) {
+        String token = userService.signUp(request);
+        return ResponseEntity.ok(token);
     }
 
     @GetMapping
