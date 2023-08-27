@@ -3,9 +3,18 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/pastry
+    url: jdbc:mysql://localhost:3306/pastry?profileSQL=true&logger=Slf4JLogger
     username: sa
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+
+security:
+  jwt:
+    token:
+      secret-key: ca02acd50f02e90848f89af94fed35e78c801f7a72975a6a5dc1765234755854
+      expire-ms: 300000 # 5분 (300초)
+
