@@ -1,6 +1,6 @@
 package com.baker1ee.pastry.security.config;
 
-import com.baker1ee.pastry.domain.user.repository.UserRepository;
+import com.baker1ee.pastry.security.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

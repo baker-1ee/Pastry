@@ -1,5 +1,9 @@
-package com.baker1ee.pastry.security.auth;
+package com.baker1ee.pastry.security.auth.controller;
 
+import com.baker1ee.pastry.security.auth.dto.AuthenticationRequest;
+import com.baker1ee.pastry.security.auth.dto.AuthenticationResponse;
+import com.baker1ee.pastry.security.auth.dto.RegisterRequest;
+import com.baker1ee.pastry.security.auth.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

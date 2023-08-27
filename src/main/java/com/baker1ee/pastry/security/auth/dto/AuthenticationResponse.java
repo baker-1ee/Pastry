@@ -1,4 +1,4 @@
-package com.baker1ee.pastry.security.auth;
+package com.baker1ee.pastry.security.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

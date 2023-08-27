@@ -1,4 +1,4 @@
-package com.baker1ee.pastry.security;
+package com.baker1ee.pastry.security.jwt;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

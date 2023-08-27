@@ -1,6 +1,6 @@
 package com.baker1ee.pastry.security.config;
 
-import com.baker1ee.pastry.security.JwtAuthenticationFilter;
+import com.baker1ee.pastry.security.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

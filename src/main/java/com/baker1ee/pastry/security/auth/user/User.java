@@ -1,11 +1,12 @@
-package com.baker1ee.pastry.domain.user.entity;
+package com.baker1ee.pastry.security.auth.user;
 
-import com.baker1ee.pastry.domain.user.dto.request.UserCreateRequest;
 import com.baker1ee.pastry.id.IdHolder;
+import com.baker1ee.pastry.security.auth.dto.RegisterRequest;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-@Table(name = "Users")
+@Table(name = "_user")
 public class User implements UserDetails {
 
     @Id
@@ -47,12 +48,13 @@ public class User implements UserDetails {
     @Column
     private LocalDateTime updatedDatetime;
 
-    public static User of(UserCreateRequest request) {
+    public static User of(RegisterRequest request, PasswordEncoder passwordEncoder) {
         return User.builder()
                 .userSeq(IdHolder.nextId())
                 .name(request.getName())
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
                 .createdBy(1L)
                 .updatedBy(1L)
                 .createdDatetime(LocalDateTime.now())

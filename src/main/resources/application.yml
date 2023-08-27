@@ -13,6 +13,6 @@ spring:
 security:
   jwt:
     token:
-      secret-key: Gontran_Cherrier
+      secret-key: ca02acd50f02e90848f89af94fed35e78c801f7a72975a6a5dc1765234755854
       expire-ms: 300000 # 5분 (300초)
-      
+

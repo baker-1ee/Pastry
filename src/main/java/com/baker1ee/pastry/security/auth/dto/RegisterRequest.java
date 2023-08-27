@@ -1,4 +1,4 @@
-package com.baker1ee.pastry.security.auth;
+package com.baker1ee.pastry.security.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
+
+    private String name;
 
     private String email;
 
