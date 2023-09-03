@@ -13,4 +13,12 @@ public class AuthenticationResponse {
 
     private String token;
 
+    private UserResponse user;
+
+    public static AuthenticationResponse of(String token, UserResponse user) {
+        return AuthenticationResponse.builder()
+                .token(token)
+                .user(user)
+                .build();
+    }
 }

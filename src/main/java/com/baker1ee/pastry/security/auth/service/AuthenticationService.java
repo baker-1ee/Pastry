@@ -3,12 +3,14 @@ package com.baker1ee.pastry.security.auth.service;
 import com.baker1ee.pastry.security.auth.dto.AuthenticationRequest;
 import com.baker1ee.pastry.security.auth.dto.AuthenticationResponse;
 import com.baker1ee.pastry.security.auth.dto.RegisterRequest;
+import com.baker1ee.pastry.security.auth.dto.UserResponse;
 import com.baker1ee.pastry.security.auth.repository.UserRepository;
 import com.baker1ee.pastry.security.auth.user.User;
 import com.baker1ee.pastry.security.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +31,7 @@ public class AuthenticationService {
         User user = User.of(request, passwordEncoder);
         userRepository.save(user);
         String jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+        return AuthenticationResponse.of(jwtToken, UserResponse.from(user));
     }
 
     private void validate(RegisterRequest request) {
@@ -44,8 +44,11 @@ public class AuthenticationService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
         String jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+        return AuthenticationResponse.of(jwtToken, UserResponse.from(user));
+    }
+
+    public UserResponse getUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return UserResponse.from(user);
     }
 }
